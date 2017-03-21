@@ -13,7 +13,7 @@ from flask import render_template, \
 from webapp import app
 from .forms import DummyContentForm, LoginForm
 from .models import DummyContent, User
-from flask.ext.login import login_user, login_required, \
+from flask_login import login_user, login_required, \
     logout_user
 
 @app.route('/')
