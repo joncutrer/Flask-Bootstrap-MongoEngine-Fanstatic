@@ -19,8 +19,6 @@ from flask_login import LoginManager
 def get_config():
     if os.environ.get('FLASK_ENV', '') == 'PROD':
         return 'webapp.settings.ProductionConfig'
-    elif os.environ.get('FLASK_ENV', '') == 'DOTCLOUD':
-        return 'webapp.settings.DotcloudConfig'
     else:
         return 'webapp.settings.DevelopmentConfig'
 
@@ -41,5 +39,5 @@ fanstatic.resource('js/app.js', name='app_js', bottom=True)
 
 ##- Imports -##
 
-import views
+import webapp.views
 import admin
