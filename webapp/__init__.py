@@ -40,4 +40,4 @@ fanstatic.resource('js/app.js', name='app_js', bottom=True)
 ##- Imports -##
 
 import webapp.views
-import admin
+import webapp.admin
