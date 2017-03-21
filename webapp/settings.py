@@ -31,21 +31,6 @@ class ProductionConfig(GenericConfig):
         'minified': True
     }
 
-class DotcloudConfig(ProductionConfig):
-
-    DEBUG = True
-
-    dotcloud_env = {}
-    try:
-        dotcloud_env_file_path = os.path.expanduser('~/environment.json')
-        with open(dotcloud_env_file_path) as f:
-            dotcloud_env.update(json.load(f))
-    except Exception as e:
-        app.logger.error('unable to load file : %s, exception : %s' % (format(dotcloud_env_file_path), e))
-
-    # You should not use "/admin" user for production env.
-    MONGODB_SETTINGS = dict(host=dotcloud_env.get('DOTCLOUD_DATA_MONGODB_URL','novalue') + '/admin', db='flask_db')
-
 class DevelopmentConfig(GenericConfig):
     DEBUG = True
     FANSTATIC_OPTIONS = {
