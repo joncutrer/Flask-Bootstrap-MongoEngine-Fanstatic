@@ -7,13 +7,13 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from flask.ext import wtf
-from flask.ext.mongoengine.wtf import model_form
+from flask_wtf import FlaskForm
+from flask_mongoengine.wtf import model_form
 
 from .models import DummyContent
 
 DummyContentForm = model_form(DummyContent)
 
-class LoginForm(wtf.Form):
-    email = wtf.TextField(validators=[wtf.required(), wtf.validators.Email()])
-    password = wtf.PasswordField(validators=[wtf.required()])
+class LoginForm(FlaskForm.Form):
+    email = FlaskForm.TextField(validators=[FlaskForm.required(), FlaskForm.validators.Email()])
+    password = FlaskForm.PasswordField(validators=[FlaskForm.required()])
