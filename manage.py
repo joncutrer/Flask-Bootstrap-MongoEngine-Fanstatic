@@ -1,4 +1,4 @@
-from flask.ext.script import Manager, Server
+from flask_script import Manager, Server
 from webapp import app
 from webapp.models import User
 
@@ -19,12 +19,12 @@ def create_admin_user():
     pwd = app.config.get('ADMIN_PASSWORD', 'secret')
     user = User.by_email(email)
     if user is not None:
-        print 'Admin user already there.'
+        print('Admin user already there.')
         return
     else:
         user = User(email=email, password=pwd)
         user.save()
-        print 'Admin user created.'
+        print('Admin user created.')
 
 if __name__ == "__main__":
     manager.run()
