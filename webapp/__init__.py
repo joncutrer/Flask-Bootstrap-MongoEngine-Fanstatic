@@ -10,8 +10,8 @@
 import os
 from flask import Flask
 from flask_fanstatic import Fanstatic
-from flask.ext.mongoengine import MongoEngine
-from flask.ext.login import LoginManager
+from flask_mongoengine import MongoEngine
+from flask_login import LoginManager
 
 
 ##- Init and configure -##
